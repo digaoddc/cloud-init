@@ -1,4 +1,0 @@
-
-
-docker build . -t cloud-init
-docker run -it cloud-init bash

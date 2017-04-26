@@ -1,7 +1,19 @@
-require 'rack'
+require 'sinatra'
 
-file = File.read("/root/user_data.txt")
-app = Proc.new do |env|
-    ['200', {'Content-Type' => 'text/html'}, [file]]
+file = File.read("/vagrant/user_data.txt")
+get '/' do
+  'Hello'
 end
-Rack::Handler::WEBrick.run app
+
+get '/2009-04-04/meta-data' do
+  'instance-id'
+end
+
+get '/2009-04-04/meta-data/instance-id' do
+  'vps'
+end
+
+get '/2009-04-04/user-data' do
+  file
+end
+
