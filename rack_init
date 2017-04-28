@@ -1,0 +1,43 @@
+#! /bin/sh
+# /etc/init.d/rack_init
+#
+
+status() {
+  quantity=$(ps aux | grep "/vagrant/rack.rb" | wc -l)
+  if [ "$quantity" -gt "1" ]
+    then
+    echo "Service is running"
+    exit 0
+  fi
+
+  echo "Service is not running"
+}
+
+stop() {
+  pids=$(ps aux | grep "/vagrant/rack.rb" | tr -s ' ' | cut -c 6-9)
+  for pid in $pids; do
+    kill $pid
+  done
+}
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    logger -s "Start"
+    ruby /vagrant/rack.rb &
+    ;;
+  stop)
+    logger -s "STOP"
+    stop
+    ;;
+  status)
+    status
+    ;;
+  *)
+    echo "Usage: /etc/init.d/rack_init {start|stop|status}"
+    exit 1
+    ;;
+esac
+
+exit 0
+
