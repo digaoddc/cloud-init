@@ -10,4 +10,8 @@ users:
     shell: /bin/bash
 packages:
   - golang
+runcmd:
+  - [ sh, -xc, "echo $(mkdir -p /home/vagrant/digao)" ]
+  - echo "Coffe is great, isn\'t?"
+  - touch /home/vagrant/digao/docker.yml
 
