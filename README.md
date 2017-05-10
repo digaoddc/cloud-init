@@ -1,5 +1,5 @@
 # Cloud Init
-This project allows you to easily test a Cloud Init configuration with `EC2 ` DataSource.
+This project allows you to easily test a Cloud Init configuration with `EC2 ` DataSource, change `user data` and see the results right away .
 
 ## Usage
 It depends on `Vagrant` as a dependency, so make sure to install it .
@@ -11,17 +11,28 @@ sudo su
 dpkg-reconfigure cloud-init
 ``````
 
+EC2 data source requires an endpoint to get metadata, and it needs to be available on boot time, so we set up a daemon to provide that requirement .
 Start a daemon process that will listen on port `4567` that will act as our real `UserData` source .
 ```
 chmod +x /vagrant/script.sh
 /vagrant/script.sh
 ```
 
-Finally create a snapshot of your virtual machine and run Cloud Init.
+## Final steps
+
+At this point we have all necessary dependencies in order to run our cloud init, yet we've got 2 options to do it .
+
+### 1) Create a snapshot of your virtual machine and run Cloud Init.
 
 ```
 cloud-init init
 ```
+
+### 2) Create a snapshot and reboot
+```
+sudo reboot
+```
+It will automatically run cloud init on boot .
 
 ## Changing user-data
 To change diferent user-data configs, change the file `/vagrant/user_data.txt` at your heart's content .
