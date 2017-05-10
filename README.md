@@ -33,6 +33,7 @@ cloud-init init
 sudo reboot
 ```
 It will automatically run cloud init on boot .
+You can look for output on `/var/log/cloud-init-output.log` or `/var/log/cloud-init.log`
 
 ## Changing user-data
 To change diferent user-data configs, change the file `/vagrant/user_data.txt` at your heart's content .
