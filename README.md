@@ -38,6 +38,9 @@ You can look for output on `/var/log/cloud-init-output.log` or `/var/log/cloud-i
 ## Changing user-data
 To change diferent user-data configs, change the file `/vagrant/user_data.txt` at your heart's content .
 
+### Vagrant tools
+http://stackoverflow.com/questions/42074246/vagrant-error-unable-to-mount-virtualbox-shared-folders-guest-additions-vboxs
+
 ## License
 
 The lib is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
