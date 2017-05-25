@@ -39,7 +39,10 @@ You can look for output on `/var/log/cloud-init-output.log` or `/var/log/cloud-i
 To change diferent user-data configs, change the file `/vagrant/user_data.txt` at your heart's content .
 
 ### Vagrant tools
-http://stackoverflow.com/questions/42074246/vagrant-error-unable-to-mount-virtualbox-shared-folders-guest-additions-vboxs
+If you have any errors while using vagrant up, Install virtual box guest .
+```
+vagrant plugin install vagrant-vbguest
+```
 
 ## License
 
