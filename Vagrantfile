@@ -74,6 +74,6 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL
      apt-get update
      apt-get install cloud-init ruby-rack vim curl -y
-     gem install sinatra
+     gem install sinatra -v 1.4.8
    SHELL
 end

@@ -38,6 +38,12 @@ You can look for output on `/var/log/cloud-init-output.log` or `/var/log/cloud-i
 ## Changing user-data
 To change diferent user-data configs, change the file `/vagrant/user_data.txt` at your heart's content .
 
+### Vagrant tools
+If you have any errors while using vagrant up, Install virtual box guest .
+```
+vagrant plugin install vagrant-vbguest
+```
+
 ## License
 
 The lib is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
