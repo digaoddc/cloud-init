@@ -3,7 +3,7 @@
 #
 
 status() {
-  quantity=$(ps aux | grep "/vagrant/rack.rb" | wc -l)
+  quantity=$(ps aux | grep "/vagrant/fake_api.rb" | wc -l)
   if [ "$quantity" -gt "1" ]
     then
     echo "Service is running"
@@ -14,7 +14,7 @@ status() {
 }
 
 stop() {
-  pids=$(ps aux | grep "/vagrant/rack.rb" | tr -s ' ' | cut -c 6-9)
+  pids=$(ps aux | grep "/vagrant/fake_api.rb" | tr -s ' ' | cut -c 6-9)
   for pid in $pids; do
     kill $pid
   done
@@ -24,7 +24,7 @@ stop() {
 case "$1" in
   start)
     logger -s "Start"
-    ruby /vagrant/rack.rb &
+    ruby /vagrant/fake_api.rb &
     ;;
   stop)
     logger -s "STOP"

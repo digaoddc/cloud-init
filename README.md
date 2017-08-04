@@ -14,8 +14,8 @@ dpkg-reconfigure cloud-init
 EC2 data source requires an endpoint to get metadata, and it needs to be available on boot time, so we set up a daemon to provide that requirement .
 Start a daemon process that will listen on port `4567` that will act as our real `UserData` source .
 ```
-chmod +x /vagrant/script.sh
-/vagrant/script.sh
+chmod +x /vagrant/setup.sh
+/vagrant/setup.sh
 ```
 
 ## Final steps
@@ -36,7 +36,7 @@ It will automatically run cloud init on boot .
 You can look for output on `/var/log/cloud-init-output.log` or `/var/log/cloud-init.log`
 
 ## Changing user-data
-To change diferent user-data configs, change the file `/vagrant/user_data.txt` at your heart's content .
+To change diferent user-data configs, change the file `/vagrant/user_data.yml` at your heart's content .
 
 ### Vagrant tools
 If you have any errors while using vagrant up, Install virtual box guest .
