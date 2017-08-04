@@ -1,6 +1,5 @@
 require 'sinatra'
 
-file = File.read("/vagrant/user_data.txt")
 get '/' do
   'Hello'
 end
@@ -10,10 +9,11 @@ get '/2009-04-04/meta-data' do
 end
 
 get '/2009-04-04/meta-data/instance-id' do
-  'vps'
+  # return 'vps' # Uncomment this line to run cloud-init once
+  time = Time.now.strftime "%H-%M-%S"
+  "vps-#{time}"
 end
 
 get '/2009-04-04/user-data' do
-  file
+  File.read("/vagrant/user_data.yml")
 end
-
